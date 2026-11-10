@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maureen Wanjiku Mburu | Offensive Security & Robotics</title>
+<meta name="description" content="Offensive security student, CTF player, robotics instructor and machine learning student based in Kenya.">
+<style>
+:root{--bg:#070a10;--panel:#0d121c;--line:#1c2638;--text:#d8e2f0;--dim:#7d8aa3;--pink:#ff4fd8;--cyan:#22d3ee;--green:#39ff88;--red:#ff5c6c}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.65 "Fira Code","JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;overflow-x:hidden}
+#web{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px)}
+main{position:relative;z-index:2;max-width:960px;margin:0 auto;padding:0 20px 60px}
+section{padding:64px 0 8px}
+h2{font-size:1.15rem;color:var(--cyan);margin-bottom:20px;letter-spacing:.04em}
+h2::before{content:"$ ";color:var(--pink)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:18px;padding-top:40px}
+.status{font-size:.8rem;color:var(--green);border:1px solid #1f4a33;border-radius:99px;padding:4px 14px;background:rgba(57,255,136,.06)}
+.status i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:8px;animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(57,255,136,.6)}50%{box-shadow:0 0 0 7px rgba(57,255,136,0)}}
+h1{font-size:clamp(1.9rem,6vw,3.4rem);line-height:1.15;background:linear-gradient(90deg,var(--pink),var(--cyan),var(--pink));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:200% 0}}
+.glitch{position:relative}
+.role{font-size:clamp(1rem,2.6vw,1.3rem);color:var(--dim);min-height:1.8em}
+.role b{color:var(--text);font-weight:500}
+.caret{display:inline-block;width:.6em;height:1.15em;vertical-align:-.2em;background:var(--pink);margin-left:3px;box-shadow:0 0 12px var(--pink);animation:blink 1s steps(1) infinite}
+.caret.typing{animation:none;opacity:1}
+@keyframes blink{50%{opacity:0}}
+.bot{width:120px;height:120px;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.bot .eye{transform-box:fill-box;transform-origin:center;animation:eyes 4.5s infinite}
+@keyframes eyes{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.bot .ant{animation:pulse2 1.2s infinite}
+@keyframes pulse2{50%{opacity:.25}}
+.btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:10px 20px;border:1px solid var(--pink);color:var(--pink);text-decoration:none;border-radius:6px;background:rgba(255,79,216,.06);transition:.2s}
+.btn:hover{background:var(--pink);color:#12000d;box-shadow:0 0 22px rgba(255,79,216,.55)}
+.btn.c{border-color:var(--cyan);color:var(--cyan);background:rgba(34,211,238,.06)}
+.btn.c:hover{background:var(--cyan);color:#001318;box-shadow:0 0 22px rgba(34,211,238,.5)}
+.scroll{color:var(--dim);font-size:.75rem;margin-top:10px;animation:float 2s ease-in-out infinite}
+.card{background:rgba(13,18,28,.82);border:1px solid var(--line);border-radius:12px;padding:22px;backdrop-filter:blur(6px)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card h3{font-size:.95rem;color:var(--pink);margin-bottom:10px}
+.card p,.card li{color:var(--dim);font-size:.92rem}
+.card ul{list-style:none}
+.card li::before{content:"> ";color:var(--cyan)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.8rem;padding:4px 11px;border:1px solid var(--line);border-radius:6px;background:#0a0f18;transition:.2s}
+.tag:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+.bars div{margin:10px 0}
+.bars span{display:flex;justify-content:space-between;font-size:.82rem}
+.bars em{display:block;height:6px;border-radius:4px;background:#121a28;margin-top:5px;overflow:hidden}
+.bars em i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--cyan));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.term{font-size:.82rem;height:210px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;color:var(--dim)}
+.term .ok{color:var(--green)}.term .warn{color:#ffd166}.term .bad{color:var(--red)}.term .inf{color:var(--cyan)}
+.tele{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:16px}
+.tele div{border:1px solid var(--line);border-radius:8px;padding:10px;background:#0a0f18}
+.tele small{display:block;color:var(--dim);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}
+.tele strong{font-size:1.25rem;color:var(--cyan);font-weight:500}
+.ecg{width:100%;height:50px;display:block}
+.ecg path{fill:none;stroke:var(--green);stroke-width:2;stroke-dasharray:400;animation:ecg 2.4s linear infinite;filter:drop-shadow(0 0 4px var(--green))}
+@keyframes ecg{from{stroke-dashoffset:800}to{stroke-dashoffset:0}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+footer{text-align:center;color:var(--dim);font-size:.8rem;padding:50px 0 10px}
+</style>
+</head>
+<body>
+<canvas id="web" aria-hidden="true"></canvas>
+<main>
+
+<header class="hero">
+  <div class="status"><i></i>online · Kenya · <span id="clock">--:--:--</span> EAT</div>
+  <svg class="bot" viewBox="0 0 120 120" aria-hidden="true">
+    <line x1="60" y1="8" x2="60" y2="26" stroke="#7d8aa3" stroke-width="3"/>
+    <circle class="ant" cx="60" cy="8" r="5" fill="#ff4fd8"/>
+    <rect x="22" y="26" width="76" height="62" rx="14" fill="#0d121c" stroke="#22d3ee" stroke-width="3"/>
+    <circle class="eye" cx="44" cy="54" r="8" fill="#22d3ee"/>
+    <circle class="eye" cx="76" cy="54" r="8" fill="#ff4fd8"/>
+    <path d="M44 74 Q60 82 76 74" stroke="#39ff88" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <rect x="12" y="46" width="8" height="22" rx="4" fill="#1c2638"/><rect x="100" y="46" width="8" height="22" rx="4" fill="#1c2638"/>
+    <rect x="40" y="92" width="40" height="14" rx="5" fill="#0d121c" stroke="#1c2638" stroke-width="2"/>
+  </svg>
+  <h1>Maureen Wanjiku Mburu</h1>
+  <p class="role"><b id="typed"></b><span class="caret">&nbsp;</span></p>
+  <p style="color:var(--dim);max-width:560px">I break things to make them stronger: offensive security, CTFs, and the intersection of embedded AI and robots.</p>
+  <div class="btns">
+    <a class="btn" href="https://www.linkedin.com/in/maureen-wanjiku-052bb43b7" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn c" href="https://github.com/maureen03571" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="mailto:mburumaureen03@gmail.com">Contact me</a>
+  </div>
+  <div class="scroll">scroll ↓ the web follows you</div>
+</header>
+
+<section class="rv">
+  <h2>whoami</h2>
+  <div class="card">
+    <p>I'm a cybersecurity major on the offensive track and a computer science student from Kenya. I work as a <span style="color:var(--text)">forensic analyst</span>, <span style="color:var(--text)">web developer</span> and <span style="color:var(--text)">robotics instructor</span>, and I'm studying machine learning. My focus is security for embedded AI in robotics, and I'm currently exploring simulation.</p>
+  </div>
+</section>
+
+<section class="rv">
+  <h2>focus --areas</h2>
+  <div class="grid">
+    <div class="card"><h3>// Offensive Security</h3><ul><li>Pentesting and vulnerability research</li><li>CTF player</li><li>Web and embedded attack surfaces</li></ul></div>
+    <div class="card"><h3>// Robotics + Embedded AI</h3><ul><li>ROS and securing AI-driven robots</li><li>Teaching robotics as an instructor</li><li>Exploring simulation</li></ul></div>
+    <div class="card"><h3>// Forensics + ML</h3><ul><li>Digital forensics and evidence analysis</li><li>Machine learning student</li><li>Full-stack web development</li></ul></div>
+  </div>
+</section>
+
+<section class="rv">
+  <h2>skills --languages</h2>
+  <div class="grid">
+    <div class="card bars" id="bars">
+      <div><span>Python<b>90%</b></span><em><i data-w="90"></i></em></div>
+      <div><span>C<b>75%</b></span><em><i data-w="75"></i></em></div>
+      <div><span>Java<b>72%</b></span><em><i data-w="72"></i></em></div>
+      <div><span>TypeScript<b>70%</b></span><em><i data-w="70"></i></em></div>
+      <div><span>HTML / CSS<b>88%</b></span><em><i data-w="88"></i></em></div>
+    </div>
+    <div class="card"><h3>// toolbox</h3><div class="tags">
+      <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">TypeScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Kali Linux</span><span class="tag">CTF</span><span class="tag">Digital Forensics</span><span class="tag">Robotics</span><span class="tag">ROS</span><span class="tag">Machine Learning</span><span class="tag">Embedded AI</span><span class="tag">Simulation</span>
+    </div><p style="margin-top:14px;font-size:.8rem">Adjust the percentages to what feels honest to you.</p></div>
+  </div>
+</section>
+
+<section class="rv">
+  <h2>live --telemetry</h2>
+  <div class="card">
+    <div class="tele">
+      <div><small>Joint temp</small><strong id="t1">41°C</strong></div>
+      <div><small>Battery</small><strong id="t2">87%</strong></div>
+      <div><small>Packets/s</small><strong id="t3">1204</strong></div>
+      <div><small>Threats blocked</small><strong id="t4">0</strong></div>
+    </div>
+    <svg class="ecg" viewBox="0 0 400 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 25 H60 L70 25 L78 6 L88 44 L96 25 H170 L180 25 L188 10 L198 40 L206 25 H280 L290 25 L298 4 L308 46 L316 25 H400"/></svg>
+    <div class="term" id="term" style="margin-top:14px"></div>
+  </div>
+</section>
+
+<section class="rv">
+  <h2>connect --open</h2>
+  <div class="card" style="text-align:center">
+    <p style="margin-bottom:16px">Open to CTF teams, robotics security collabs, and learning together.</p>
+    <div class="btns">
+      <a class="btn" href="https://www.linkedin.com/in/maureen-wanjiku-052bb43b7" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn c" href="https://github.com/maureen03571" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="mailto:mburumaureen03@gmail.com">Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="yr"></span> Maureen Wanjiku Mburu · built with HTML, CSS &amp; a little chaos</footer>
+</main>
+
+<script>
+(function(){
+"use strict";
+var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+/* ---------- interactive web background ---------- */
+var cv=document.getElementById("web"),cx=cv.getContext("2d"),W,H,dpr=Math.min(devicePixelRatio||1,2),pts=[];
+var ptr={x:-999,y:-999,on:false,a:0},trail=[];
+function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+  var n=Math.min(90,Math.floor(W*H/16000));pts=[];
+  for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,c:Math.random()<.5?"255,79,216":"34,211,238"});}
+size();addEventListener("resize",size);
+function move(e){var t=e.touches?e.touches[0]:e;ptr.x=t.clientX;ptr.y=t.clientY;ptr.on=true;trail.push({x:ptr.x,y:ptr.y,l:1});if(trail.length>22)trail.shift();}
+addEventListener("pointermove",move,{passive:true});
+addEventListener("touchstart",move,{passive:true});
+addEventListener("touchmove",move,{passive:true});
+function leave(){ptr.on=false;}
+addEventListener("pointerup",function(e){if(e.pointerType==="touch")leave();});
+addEventListener("touchend",leave);
+document.addEventListener("mouseleave",leave);
+function draw(){
+  cx.clearRect(0,0,W,H);
+  ptr.a+=((ptr.on?1:0)-ptr.a)*.08;
+  for(var i=0;i<pts.length;i++){
+    var p=pts[i];p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+    var dx=ptr.x-p.x,dy=ptr.y-p.y,d=Math.hypot(dx,dy);
+    if(ptr.a>.05&&d<160&&d>1){p.x+=dx/d*.6*ptr.a;p.y+=dy/d*.6*ptr.a;}
+    cx.fillStyle="rgba("+p.c+",.8)";cx.beginPath();cx.arc(p.x,p.y,1.6,0,6.283);cx.fill();
+    for(var j=i+1;j<pts.length;j++){var q=pts[j],ex=p.x-q.x,ey=p.y-q.y,e=ex*ex+ey*ey;
+      if(e<14400){cx.strokeStyle="rgba("+p.c+","+(.22*(1-e/14400))+")";cx.lineWidth=1;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke();}}
+    if(ptr.a>.05&&d<190){cx.strokeStyle="rgba(255,255,255,"+(.5*ptr.a*(1-d/190))+")";cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(ptr.x,ptr.y);cx.stroke();}
+  }
+  for(var k=0;k<trail.length;k++){var t=trail[k];t.l-=.04;if(t.l>0){cx.fillStyle="rgba(255,79,216,"+t.l*.5+")";cx.beginPath();cx.arc(t.x,t.y,3*t.l,0,6.283);cx.fill();}}
+  trail=trail.filter(function(t){return t.l>0;});
+  if(ptr.a>.05){cx.fillStyle="rgba(255,255,255,"+ptr.a+")";cx.shadowBlur=14;cx.shadowColor="#ff4fd8";cx.beginPath();cx.arc(ptr.x,ptr.y,3.5,0,6.283);cx.fill();cx.shadowBlur=0;}
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* ---------- typing roles ---------- */
+var roles=["offensive security student","CTF player","forensic analyst","robotics instructor","machine learning student","web developer"],ri=0,ci=0,del=false,el=document.getElementById("typed");
+var caret=document.querySelector(".caret");
+function type(){var r=roles[ri];
+  el.textContent=r.slice(0,ci);
+  if(!del&&ci<r.length){caret.classList.add("typing");ci++;setTimeout(type,85);}
+  else if(!del){caret.classList.remove("typing");del=true;setTimeout(type,1500);}
+  else if(ci>0){caret.classList.add("typing");ci--;setTimeout(type,40);}
+  else{caret.classList.remove("typing");del=false;ri=(ri+1)%roles.length;setTimeout(type,400);}}
+type();
+
+/* ---------- clock + year ---------- */
+function tick(){var d=new Date(),f=new Intl.DateTimeFormat("en-GB",{timeZone:"Africa/Nairobi",hour:"2-digit",minute:"2-digit",second:"2-digit"});document.getElementById("clock").textContent=f.format(d);}
+tick();setInterval(tick,1000);document.getElementById("yr").textContent=new Date().getFullYear();
+
+/* ---------- reveal + skill bars ---------- */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");
+  e.target.querySelectorAll("[data-w]").forEach(function(b){b.style.width=b.dataset.w+"%";});io.unobserve(e.target);}});},{threshold:.15});
+document.querySelectorAll(".rv").forEach(function(n){io.observe(n);});
+
+/* ---------- live telemetry + terminal ---------- */
+var t1=document.getElementById("t1"),t2=document.getElementById("t2"),t3=document.getElementById("t3"),t4=document.getElementById("t4"),blocked=0,bat=87;
+function rnd(a,b){return Math.floor(a+Math.random()*(b-a+1));}
+setInterval(function(){
+  t1.textContent=rnd(38,47)+"°C";
+  if(Math.random()<.15&&bat>20)bat--;t2.textContent=bat+"%";
+  t3.textContent=rnd(900,1800);
+  if(Math.random()<.4){blocked+=rnd(1,3);}t4.textContent=blocked;
+},900);
+var term=document.getElementById("term");
+var logs=[["ok","[ OK ] servo_bus handshake complete"],["inf","[INFO] scanning 192.168.0.0/24 (lab network)"],["ok","[ OK ] firmware signature verified"],["warn","[WARN] unauthenticated BLE service detected (lab target)"],["inf","[INFO] simulation step 4821 · reward 0.74"],["ok","[ OK ] flag{y0u_f0und_m3} captured"],["bad","[BLOCK] replayed websocket frame dropped"],["inf","[INFO] model inference 12ms on edge device"],["ok","[ OK ] evidence hash matches (sha256)"],["warn","[WARN] outdated dependency flagged in report"],["inf","[INFO] gait controller stable"],["bad","[BLOCK] malformed packet rejected"]];
+function addLog(){var l=logs[rnd(0,logs.length-1)],d=document.createElement("div"),n=new Date().toTimeString().slice(0,8);
+  d.className=l[0];d.textContent=n+" "+l[1];term.appendChild(d);
+  while(term.children.length>11)term.removeChild(term.firstChild);}
+for(var i=0;i<6;i++)addLog();
+setInterval(addLog,1100);
+})();
+</script>
+</body>
+</html>
